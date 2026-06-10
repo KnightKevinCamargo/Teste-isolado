@@ -19,8 +19,10 @@ Dois containers se comunicando pela rede interna do Docker, sem expor o banco pa
 Pré-requisitos: Docker e Docker Compose instalados.
 
 git clone https://github.com/KnightKevinCamargo/Teste-isolado.git
+'''bash
 cd Teste-isolado
 docker compose up -d --build
+'''
 
 ## Endpoints
 
