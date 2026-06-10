@@ -28,43 +28,26 @@ docker compose up -d --build
 
 | Método | Rota | Descrição |
 |--------|------|-----------|
-| GET | /tarefas | Lista todas as tarefas |
-| POST | /tarefas | Cria uma nova tarefa |
-| DELETE | /tarefas/:id | Deleta uma tarefa |
-
-## Tecnologias
-
-- Docker
-- Docker Compose
-- Node.js + Express
-- PostgreSQL
-
-## O que aprendi
-
-- Escrever um Dockerfile do zero
-- Configurar múltiplos serviços com docker-compose.yml
-- Comunicação entre containers via rede interna do Docker
-- Diferença entre image: e build: no Compose
-- Persistência de dados com volumes
-
+| GET | /carros | Lista todos os carros |
+| POST | /carros | Cadastra um carro |
+| DELETE | /carros/:id | Deleta um carro |
 
 ## Testando a API
 
-Após subir o projeto, rode os comandos abaixo para testar:
+    # Listar carros (vazio no início)
+    curl http://localhost:3000/carros
 
-    # Listar tarefas (vazio no início)
-    curl http://localhost:3000/tarefas
+    # Cadastrar carros
+    curl -X POST http://localhost:3000/carros -H "Content-Type: application/json" -d '{"nome": "Corolla", "marca": "Toyota", "ano": 2022, "placa": "ABC1234"}'
+    curl -X POST http://localhost:3000/carros -H "Content-Type: application/json" -d '{"nome": "Civic", "marca": "Honda", "ano": 2021, "placa": "DEF5678"}'
+    curl -X POST http://localhost:3000/carros -H "Content-Type: application/json" -d '{"nome": "Onix", "marca": "Chevrolet", "ano": 2023, "placa": "GHI9012"}'
 
-    # Criar três tarefas
-    curl -X POST http://localhost:3000/tarefas -H "Content-Type: application/json" -d '{"titulo": "Aprender Docker"}'
-    curl -X POST http://localhost:3000/tarefas -H "Content-Type: application/json" -d '{"titulo": "Subir no GitHub"}'
-    curl -X POST http://localhost:3000/tarefas -H "Content-Type: application/json" -d '{"titulo": "Aprender Kubernetes"}'
+    # Listar carros cadastrados
+    curl http://localhost:3000/carros
 
-    # Listar tarefas criadas
-    curl http://localhost:3000/tarefas
+    # Deletar o carro de id 1
+    curl -X DELETE http://localhost:3000/carros/1
 
-    # Deletar a tarefa de id 1
-    curl -X DELETE http://localhost:3000/tarefas/1
+    # Listar carros restantes
+    curl http://localhost:3000/carros
 
-    # Listar tarefas restantes
-    curl http://localhost:3000/tarefas
