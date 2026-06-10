@@ -6,9 +6,9 @@ services:
     image: postgres:16-alpine
 # Imagem do linux que vai ser utizada do linux que ta no dockerhub
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: teste-isolado
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
 #Adicionar Volume de Banco
     volumes:
       - db_data:/var/lib/postgresql/data
@@ -23,7 +23,7 @@ services:
       - db
 # Rodar o serviço db antes do api
     environment:
-      DATABASE_URL: postgres://admin:admin@db:5432/teste-isolado
+      DATABASE_URL: ${DATABASE_URL}
     ports:
       - "3000:3000"
 # variaveis como URL da DATABASE e porta utilizada 3000 dentro do docker e fora do docker é o 3000
