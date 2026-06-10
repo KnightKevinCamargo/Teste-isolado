@@ -46,3 +46,25 @@ docker compose up -d --build
 - Comunicação entre containers via rede interna do Docker
 - Diferença entre image: e build: no Compose
 - Persistência de dados com volumes
+
+
+## Testando a API
+
+Após subir o projeto, rode os comandos abaixo para testar:
+
+    # Listar tarefas (vazio no início)
+    curl http://localhost:3000/tarefas
+
+    # Criar três tarefas
+    curl -X POST http://localhost:3000/tarefas -H "Content-Type: application/json" -d '{"titulo": "Aprender Docker"}'
+    curl -X POST http://localhost:3000/tarefas -H "Content-Type: application/json" -d '{"titulo": "Subir no GitHub"}'
+    curl -X POST http://localhost:3000/tarefas -H "Content-Type: application/json" -d '{"titulo": "Aprender Kubernetes"}'
+
+    # Listar tarefas criadas
+    curl http://localhost:3000/tarefas
+
+    # Deletar a tarefa de id 1
+    curl -X DELETE http://localhost:3000/tarefas/1
+
+    # Listar tarefas restantes
+    curl http://localhost:3000/tarefas
