@@ -6,7 +6,6 @@ API REST para cadastro de carros containerizada com Docker e Docker Compose.
 
 Projeto desenvolvido para aprender Docker na prática. Uma API com banco de dados PostgreSQL, onde cada serviço roda em seu próprio container isolado.
 
-Desenvolvido com auxílio do Claude (Anthropic) como ferramenta de aprendizado.
 
 ## Arquitetura
 
@@ -55,3 +54,4 @@ Pré-requisitos: Docker e Docker Compose instalados.
 - Docker Compose
 - Node.js + Express
 - PostgreSQL
+
