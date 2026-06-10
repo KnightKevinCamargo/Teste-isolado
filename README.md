@@ -4,8 +4,7 @@ API REST para cadastro de carros containerizada com Docker e Docker Compose.
 
 ## Sobre o projeto
 
-Projeto desenvolvido para aprender Docker na prática. Uma API com banco de dados PostgreSQL, onde cada serviço roda em seu próprio container isolado.
-
+Projeto desenvolvido para estudo de containerizacao com Docker. Uma API com banco de dados PostgreSQL, onde cada servico roda em seu proprio container isolado.
 
 ## Arquitetura
 
@@ -15,15 +14,17 @@ Dois containers se comunicando pela rede interna do Docker, sem expor o banco pa
 
 ## Como rodar
 
-Pré-requisitos: Docker e Docker Compose instalados.
+Pre-requisitos: Docker e Docker Compose instalados.
 
     git clone https://github.com/KnightKevinCamargo/Teste-isolado.git
     cd Teste-isolado
     docker compose up -d --build
 
+O arquivo .env ja esta configurado com valores padrao para uso local.
+
 ## Endpoints
 
-| Método | Rota | Descrição |
+| Metodo | Rota | Descricao |
 |--------|------|-----------|
 | GET | /carros | Lista todos os carros |
 | POST | /carros | Cadastra um carro |
@@ -31,7 +32,7 @@ Pré-requisitos: Docker e Docker Compose instalados.
 
 ## Testando a API
 
-    # Listar carros (vazio no início)
+    # Listar carros (vazio no inicio)
     curl http://localhost:3000/carros
 
     # Cadastrar carros
@@ -55,3 +56,9 @@ Pré-requisitos: Docker e Docker Compose instalados.
 - Node.js + Express
 - PostgreSQL
 
+## Decisoes tecnicas
+
+- Variaveis de ambiente via .env para separar configuracao do codigo
+- Volume nomeado no PostgreSQL para persistencia de dados entre restarts
+- restart: on-failure na API para lidar com race condition na inicializacao do banco
+- Banco nao expoe porta pro host — comunicacao apenas via rede interna do Docker
