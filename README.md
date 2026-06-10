@@ -1,4 +1,4 @@
-## Teste Isolado — API com Docker
+# Teste Isolado — API com Docker
 
 API de gerenciamento de tarefas containerizada com Docker e Docker Compose.
 
@@ -8,24 +8,21 @@ Projeto desenvolvido para aprender Docker na prática. Uma API REST simples de t
 
 Desenvolvido com auxílio do Claude (Anthropic) como ferramenta de aprendizado.
 
-##🏗rquiteturra
+## Arquitetura
+
+api (Node.js) → db (PostgreSQL)
 
 Dois containers se comunicando pela rede interna do Docker, sem expor o banco para fora.
 
-## 🚀 Como rodar
+## Como rodar
 
-### Pré-requisitos
-- Docker
-- Docker Compose
+Pré-requisitos: Docker e Docker Compose instalados.
 
-### Subir o projeto
-```bash
 git clone https://github.com/KnightKevinCamargo/Teste-isolado.git
 cd Teste-isolado
 docker compose up -d --build
-```
 
-## 📡 Endpoints
+## Endpoints
 
 | Método | Rota | Descrição |
 |--------|------|-----------|
@@ -33,32 +30,17 @@ docker compose up -d --build
 | POST | /tarefas | Cria uma nova tarefa |
 | DELETE | /tarefas/:id | Deleta uma tarefa |
 
-### Exemplos
+## Tecnologias
 
-```bash
-# Listar tarefas
-curl http://localhost:3000/tarefas
+- Docker
+- Docker Compose
+- Node.js + Express
+- PostgreSQL
 
-# Criar tarefa
-curl -X POST http://localhost:3000/tarefas \
-  -H "Content-Type: application/json" \
-  -d '{"titulo": "Aprender Docker"}'
+## O que aprendi
 
-# Deletar tarefa
-curl -X DELETE http://localhost:3000/tarefas/1
-```
-
-## 🛠️ Tecnologias
-
-- **Docker** — containerização
-- **Docker Compose** — orquestração dos serviços
-- **Node.js + Express** — API REST
-- **PostgreSQL** — banco de dados
-
-## 📚 O que aprendi
-
-- Escrever um `Dockerfile` do zero
-- Configurar múltiplos serviços com `docker-compose.yml`
+- Escrever um Dockerfile do zero
+- Configurar múltiplos serviços com docker-compose.yml
 - Comunicação entre containers via rede interna do Docker
-- Diferença entre `image:` e `build:` no Compose
+- Diferença entre image: e build: no Compose
 - Persistência de dados com volumes
