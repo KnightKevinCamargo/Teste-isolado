@@ -1,32 +1,28 @@
-# 🐳 Teste Isolado — API com Docker
+# Teste Isolado — API com Docker
 
 API de gerenciamento de tarefas containerizada com Docker e Docker Compose.
 
-## 📋 Sobre o projeto
+## Sobre o projeto
 
 Projeto desenvolvido para aprender Docker na prática. Uma API REST simples de tarefas com banco de dados PostgreSQL, onde cada serviço roda em seu próprio container isolado.
 
 Desenvolvido com auxílio do Claude (Anthropic) como ferramenta de aprendizado.
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 api (Node.js) → db (PostgreSQL)
 
 Dois containers se comunicando pela rede interna do Docker, sem expor o banco para fora.
 
-## 🚀 Como rodar
+## Como rodar
 
-### Pré-requisitos
-- Docker
-- Docker Compose
-
-### Subir o projeto
+Pré-requisitos: Docker e Docker Compose instalados.
 
 git clone https://github.com/KnightKevinCamargo/Teste-isolado.git
 cd Teste-isolado
 docker compose up -d --build
 
-## 📡 Endpoints
+## Endpoints
 
 | Método | Rota | Descrição |
 |--------|------|-----------|
@@ -34,14 +30,14 @@ docker compose up -d --build
 | POST | /tarefas | Cria uma nova tarefa |
 | DELETE | /tarefas/:id | Deleta uma tarefa |
 
-## 🛠️ Tecnologias
+## Tecnologias
 
-- Docker — containerização
-- Docker Compose — orquestração dos serviços
-- Node.js + Express — API REST
-- PostgreSQL — banco de dados
+- Docker
+- Docker Compose
+- Node.js + Express
+- PostgreSQL
 
-## 📚 O que aprendi
+## O que aprendi
 
 - Escrever um Dockerfile do zero
 - Configurar múltiplos serviços com docker-compose.yml
