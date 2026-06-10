@@ -8,7 +8,7 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 async function init() {
   await pool.query(`
-    CREATE TABLE IF NOT EXISTS carro (
+    CREATE TABLE IF NOT EXISTS carros (
       id SERIAL PRIMARY KEY,
       Nome TEXT NOT NULL,
       Marca TEXT NOT NULL,

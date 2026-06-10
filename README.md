@@ -1,10 +1,10 @@
-# Teste Isolado — API com Docker
+# API de Carros com Docker
 
-API de gerenciamento de tarefas containerizada com Docker e Docker Compose.
+API REST para cadastro de carros containerizada com Docker e Docker Compose.
 
 ## Sobre o projeto
 
-Projeto desenvolvido para aprender Docker na prática. Uma API REST simples de tarefas com banco de dados PostgreSQL, onde cada serviço roda em seu próprio container isolado.
+Projeto desenvolvido para aprender Docker na prática. Uma API com banco de dados PostgreSQL, onde cada serviço roda em seu próprio container isolado.
 
 Desenvolvido com auxílio do Claude (Anthropic) como ferramenta de aprendizado.
 
@@ -18,11 +18,9 @@ Dois containers se comunicando pela rede interna do Docker, sem expor o banco pa
 
 Pré-requisitos: Docker e Docker Compose instalados.
 
-git clone https://github.com/KnightKevinCamargo/Teste-isolado.git
-```bash
-cd Teste-isolado
-docker compose up -d --build
-````
+    git clone https://github.com/KnightKevinCamargo/Teste-isolado.git
+    cd Teste-isolado
+    docker compose up -d --build
 
 ## Endpoints
 
@@ -38,9 +36,9 @@ docker compose up -d --build
     curl http://localhost:3000/carros
 
     # Cadastrar carros
-    curl -X POST http://localhost:3000/carros -H "Content-Type: application/json" -d '{"nome": "Corolla", "marca": "Toyota", "ano": 2022, "placa": "ABC1234"}'
-    curl -X POST http://localhost:3000/carros -H "Content-Type: application/json" -d '{"nome": "Civic", "marca": "Honda", "ano": 2021, "placa": "DEF5678"}'
-    curl -X POST http://localhost:3000/carros -H "Content-Type: application/json" -d '{"nome": "Onix", "marca": "Chevrolet", "ano": 2023, "placa": "GHI9012"}'
+    curl -X POST http://localhost:3000/carros -H "Content-Type: application/json" -d '{"Nome": "Corolla", "Marca": "Toyota", "Ano": 2022, "Placa": "ABC1234"}'
+    curl -X POST http://localhost:3000/carros -H "Content-Type: application/json" -d '{"Nome": "Civic", "Marca": "Honda", "Ano": 2021, "Placa": "DEF5678"}'
+    curl -X POST http://localhost:3000/carros -H "Content-Type: application/json" -d '{"Nome": "Onix", "Marca": "Chevrolet", "Ano": 2023, "Placa": "GHI9012"}'
 
     # Listar carros cadastrados
     curl http://localhost:3000/carros
@@ -51,3 +49,9 @@ docker compose up -d --build
     # Listar carros restantes
     curl http://localhost:3000/carros
 
+## Tecnologias
+
+- Docker
+- Docker Compose
+- Node.js + Express
+- PostgreSQL

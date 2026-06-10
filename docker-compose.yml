@@ -12,7 +12,9 @@ services:
 # Variaveis do banco do postgree
   api:
 # Serviço da api
+
     build: .
+    restart: on-failure
 # Compiladar do docker-file que tem dentro desta pasta
     depends_on:
       - db
