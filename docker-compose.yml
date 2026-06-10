@@ -9,6 +9,9 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: teste-isolado
+#Adicionar Volume de Banco
+    volumes:
+      - db_data:/var/lib/postgresql/data
 # Variaveis do banco do postgree
   api:
 # Serviço da api
@@ -24,3 +27,5 @@ services:
     ports:
       - "3000:3000"
 # variaveis como URL da DATABASE e porta utilizada 3000 dentro do docker e fora do docker é o 3000
+  volumes:
+    db_data
